@@ -19,7 +19,7 @@ def main(input_video_file: str, output_video_file: str) -> None:
     fps = int(round(cap.get(5)))
     frame_width = int(cap.get(3))
     frame_height = int(cap.get(4))
-    fourcc = cv2.VideoWriter_fourcc(*'MP4V')
+    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
     out = cv2.VideoWriter(output_video_file, fourcc, fps, (frame_width, frame_height))
 
     # while loop where the real work happens
