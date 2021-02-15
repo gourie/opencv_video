@@ -1,8 +1,8 @@
 # opencv_video
-This repository contains python code snippets for frame by frame video processing using opencv2.
+This repository contains python code snippets for frame by frame video processing using OpenCV.
 
 # Getting Started
-1. Clone repo
+1. Clone repo and install prerequisites (python>=3,OpenCV>=2)
 2. Download or capture a video file that you that you would like to process (using your webcam and favorite video capture tool such as Quicktime)
 3. Adapt main() function in opencv_process_video script with opencv2 functions to process selected frames
 4. Run the main script
