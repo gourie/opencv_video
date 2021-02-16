@@ -1,4 +1,4 @@
-""" Skeleton code for python script to process a video with OpenCV2
+"""Skeleton code for python script to process a video using OpenCV package
 
 :copyright: (c) 2021, Joeri Nicolaes
 :license: BSD license
@@ -9,17 +9,17 @@ import sys
 
 
 # helper function to change what you do based on video seconds
-def between(cap, lower: int, upper: int):
+def between(cap, lower: int, upper: int) -> bool:
     return lower <= int(cap.get(cv2.CAP_PROP_POS_MSEC)) < upper
 
 
 def main(input_video_file: str, output_video_file: str) -> None:
-    # opencv video objects to work with
+    # OpenCV video objects to work with
     cap = cv2.VideoCapture(input_video_file)
     fps = int(round(cap.get(5)))
     frame_width = int(cap.get(3))
     frame_height = int(cap.get(4))
-    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+    fourcc = cv2.VideoWriter_fourcc(*'mp4v')        # saving output video as .mp4
     out = cv2.VideoWriter(output_video_file, fourcc, fps, (frame_width, frame_height))
 
     # while loop where the real work happens
@@ -29,7 +29,7 @@ def main(input_video_file: str, output_video_file: str) -> None:
             if cv2.waitKey(28) & 0xFF == ord('q'):
                 break
             if between(cap, 0, 500):
-                # do something using opencv functions (skipped here so we simply write the input frame back to output)
+                # do something using OpenCV functions (skipped here so we simply write the input frame back to output)
                 pass
             # ...
 
@@ -47,7 +47,7 @@ def main(input_video_file: str, output_video_file: str) -> None:
         else:
             break
 
-    # When everything done, release the video capture object
+    # When everything done, release the video capture and writing object
     cap.release()
     out.release()
     # Closes all the frames
